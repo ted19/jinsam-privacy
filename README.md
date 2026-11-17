@@ -1,6 +1,6 @@
 # 진삼국지 — Privacy Policy / 개인정보처리방침
 
-App: 진삼국지 / Jin Samgukji (`com.zeroline.game`)
+App: 진삼국지 / Jin Samgukji (`com.mudangstudio.jinsam`)
 Last updated / 최종 수정일: 17 November 2026
 
 Web page: <https://ted19.github.io/jinsam-privacy/>
