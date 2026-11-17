@@ -15,7 +15,7 @@ Web page: <https://ted19.github.io/jinsam-privacy/>
 
 진삼국지 (Jin Samgukji) is a single-player strategy game set in the Three Kingdoms era. The game runs entirely on your device. Your saved games and settings stay on your device.
 
-The app has no ads, no account system, no analytics and no crash reporting. We do not collect personal data and we operate no servers. The only network request the app makes on its own is a small update check described below.
+The current version shows no ads. The app includes the Google Mobile Ads (AdMob) SDK so that ads can be shown in a future update; see "Advertising" below. The app has no account system, no analytics and no crash reporting of its own. We do not collect personal data and we operate no servers.
 
 
 ## The app in one line
@@ -27,6 +27,28 @@ You rule a Three Kingdoms faction on a strategy map (domestic affairs, diplomacy
 
 We do not collect personal data. We receive no saved games, settings, play records or device identifiers from the app.
 
+Google, our advertising provider, may collect the information described under "Advertising". When ads are shown, we can see only aggregated ad reports in AdMob (for example, the number of ad impressions), which do not identify you.
+
+
+## Advertising (Google AdMob)
+
+- **Current version:** ads are turned off. The app does not request or show ads.
+- **When ads are turned on in a future update:** a banner at the bottom of the title screen. There are no ads on the strategy map or battle screens.
+- **Who collects the data:** Google, through the Google Mobile Ads SDK, under its own privacy policy:
+- **What the SDK may collect:**
+  - Device identifiers: the advertising ID (Android advertising ID), the app set ID, and identifiers from Android's Privacy Sandbox ad APIs (Topics, attribution) where available.
+- Device and app information: device model, operating system version, language, screen size, app name and version, and network type.
+- Approximate location derived from your IP address. The app does not request location permission.
+- App interactions with ads: ad impressions and taps.
+- Diagnostics: ad SDK performance and error information.
+- **Why:** to show ads, to measure ad performance, to prevent fraud and abuse, and, if you allow it, to personalise ads.
+- **What the SDK never receives:** your saved games or settings. The app does not pass them to the ad SDK.
+- **Sharing:** the information above is collected by Google and may be shared with Google's advertising partners as described in Google's policies:
+
+## Your choices for ads
+
+- **Advertising ID:** you can reset or delete your advertising ID, or opt out of personalised ads, in Android Settings > Privacy > Ads (the exact path depends on your device).
+- **Learn more:**
 
 ## Data stored on your device
 
@@ -47,21 +69,26 @@ We do not collect personal data. We receive no saved games, settings, play recor
 
 ## Network access
 
-- The app holds the `INTERNET` permission only for the update check above. Fonts, images and sounds are bundled in the app; gameplay does not use the network.
+- The app's own code uses the network only for the update check above. Fonts, images and sounds are bundled in the app; gameplay does not use the network.
+- The Google ad SDK uses the network to load ads (only when ads are turned on).
 - Saved games and settings are never sent over the network.
 
 ## Permissions the app declares
 
 | Permission | Why |
 |---|---|
-| `INTERNET` | The update check (reading `version.json`). |
+| `INTERNET` | The update check (reading `version.json`), and the Google ad SDK to load ads. |
+| `ACCESS_NETWORK_STATE` | Used by the Google ad SDK to check for a connection before requesting ads. |
+| `com.google.android.gms.permission.AD_ID` | Used by the Google ad SDK to read the advertising ID. |
+| `ACCESS_ADSERVICES_AD_ID`, `ACCESS_ADSERVICES_ATTRIBUTION`, `ACCESS_ADSERVICES_TOPICS` | Used by the Google ad SDK for Android's Privacy Sandbox ad APIs, where available. |
+| `WAKE_LOCK`, `FOREGROUND_SERVICE` | Added by a background-task library (WorkManager) that the Google ad SDK uses. The app itself runs no foreground service. |
 | `DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION` | Added automatically by Android libraries to protect the app's own internal messages. It gives no access to your data. |
 The app keeps the screen on while it is open so the game does not sleep during play; this needs no permission and involves no data.
 
 
 ## Children
 
-The app is intended for a general audience. It collects no personal data from anyone, including children.
+The app is intended for a general audience and is not directed at children under 13 (or the minimum age in your country). We do not knowingly collect personal data from children.
 
 
 ## Changes to this policy
@@ -82,7 +109,7 @@ For questions about this policy, please use the developer contact details shown 
 
 진삼국지는 삼국 시대를 배경으로 한 1인용 전략 게임입니다. 게임은 모두 기기 안에서 돌아가며, 저장한 게임과 설정은 기기 밖으로 나가지 않습니다.
 
-앱에는 광고, 계정 기능, 분석 도구, 크래시 리포팅이 없습니다. 저희(개발자)는 개인정보를 수집하지 않으며 서버를 운영하지 않습니다. 앱이 스스로 하는 네트워크 요청은 아래에 적은 작은 업데이트 확인 하나뿐입니다.
+현재 버전은 광고를 표시하지 않습니다. 앞으로의 업데이트에서 광고를 표시할 수 있도록 앱에 Google 모바일 광고(AdMob) SDK가 들어 있습니다(아래 "광고" 참고). 앱 자체에는 계정 기능, 분석 도구, 크래시 리포팅이 없습니다. 저희(개발자)는 개인정보를 수집하지 않으며 서버를 운영하지 않습니다.
 
 
 ## 앱 소개
@@ -94,6 +121,28 @@ For questions about this policy, please use the developer contact details shown 
 
 저희는 개인정보를 수집하지 않습니다. 앱으로부터 저장 게임, 설정, 플레이 기록, 기기 식별자를 받지 않습니다.
 
+광고 제공자인 Google은 아래 "광고"에 적힌 정보를 수집할 수 있습니다. 광고를 표시하는 경우 저희는 AdMob에서 사용자를 식별할 수 없는 집계 보고서(예: 광고 노출 수)만 볼 수 있습니다.
+
+
+## 광고 (Google AdMob)
+
+- **현재 버전:** 광고가 꺼져 있습니다. 앱은 광고를 요청하거나 표시하지 않습니다.
+- **앞으로 광고를 켜는 경우:** 처음 화면 아래쪽의 배너입니다. 천하 지도와 전투 화면에는 광고가 없습니다.
+- **수집 주체:** Google이 Google 모바일 광고 SDK를 통해 수집하며, Google의 개인정보처리방침을 따릅니다:
+- **SDK가 수집할 수 있는 정보:**
+  - 기기 식별자: 광고 ID(Android 광고 ID), 앱 세트 ID, 그리고 지원되는 기기에서 Android 개인정보 보호 샌드박스 광고 API(Topics, 기여 분석)의 식별자
+- 기기·앱 정보: 기기 모델, 운영체제 버전, 언어, 화면 크기, 앱 이름과 버전, 네트워크 종류
+- IP 주소로 추정한 대략적인 위치. 앱은 위치 권한을 요청하지 않습니다.
+- 광고와의 상호작용: 광고 노출, 탭
+- 진단 정보: 광고 SDK의 성능과 오류 정보
+- **목적:** 광고 표시, 광고 성과 측정, 사기·악용 방지, 그리고 사용자가 허용한 경우 맞춤 광고
+- **광고 SDK에 전달하지 않는 정보:** 저장 게임과 설정. 앱은 이 정보를 광고 SDK에 넘기지 않습니다.
+- **제공:** 위 정보는 Google이 수집하며, Google 정책에 따라 Google의 광고 파트너와 공유될 수 있습니다:
+
+## 광고 관련 선택권
+
+- **광고 ID:** Android 설정 > 개인정보 보호 > 광고(기기에 따라 경로가 다를 수 있음)에서 광고 ID를 재설정·삭제하거나 맞춤 광고를 거부할 수 있습니다.
+- **자세히 보기:**
 
 ## 기기에 저장되는 정보
 
@@ -114,21 +163,26 @@ For questions about this policy, please use the developer contact details shown 
 
 ## 네트워크 접근
 
-- 앱의 `INTERNET` 권한은 위의 업데이트 확인에만 쓰입니다. 글꼴·그림·소리는 앱에 들어 있으며, 게임 플레이에는 네트워크를 쓰지 않습니다.
+- 앱 자체 코드는 위의 업데이트 확인에만 네트워크를 씁니다. 글꼴·그림·소리는 앱에 들어 있으며, 게임 플레이에는 네트워크를 쓰지 않습니다.
+- Google 광고 SDK는 광고를 불러올 때 네트워크를 씁니다(광고를 켰을 때만).
 - 저장 게임과 설정은 네트워크로 보내지 않습니다.
 
 ## 앱이 선언하는 권한
 
 | 권한 | 이유 |
 |---|---|
-| `INTERNET` | 업데이트 확인(`version.json` 읽기). |
+| `INTERNET` | 업데이트 확인(`version.json` 읽기), 그리고 Google 광고 SDK가 광고를 불러올 때. |
+| `ACCESS_NETWORK_STATE` | Google 광고 SDK가 광고를 요청하기 전에 연결 상태를 확인할 때 사용. |
+| `com.google.android.gms.permission.AD_ID` | Google 광고 SDK가 광고 ID를 읽을 때 사용. |
+| `ACCESS_ADSERVICES_AD_ID`, `ACCESS_ADSERVICES_ATTRIBUTION`, `ACCESS_ADSERVICES_TOPICS` | 지원되는 기기에서 Google 광고 SDK가 Android 개인정보 보호 샌드박스 광고 API를 쓸 때 사용. |
+| `WAKE_LOCK`, `FOREGROUND_SERVICE` | Google 광고 SDK가 쓰는 백그라운드 작업 라이브러리(WorkManager)가 추가합니다. 앱 자체는 포그라운드 서비스를 실행하지 않습니다. |
 | `DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION` | 앱 내부 메시지를 보호하기 위해 Android 라이브러리가 자동으로 추가합니다. 사용자 데이터에 접근하지 않습니다. |
 게임하는 동안 화면이 꺼지지 않도록 앱이 열려 있는 동안 화면을 켜 둡니다. 이 기능에는 권한이 필요 없으며 어떤 정보도 다루지 않습니다.
 
 
 ## 아동
 
-이 앱은 일반 이용자를 대상으로 합니다. 아동을 포함해 누구의 개인정보도 수집하지 않습니다.
+이 앱은 일반 이용자를 대상으로 하며 만 14세 미만(또는 거주 국가의 기준 연령 미만) 아동을 대상으로 하지 않습니다. 저희는 아동의 개인정보를 알면서 수집하지 않습니다.
 
 
 ## 방침 변경
